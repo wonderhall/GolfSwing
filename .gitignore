@@ -58,4 +58,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-golfSwing/Packages/packages-lock.json
+*.packages-lock.json
