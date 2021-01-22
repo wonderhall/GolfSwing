@@ -1,18 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FilteredPlanesCanvas : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Toggle verticalPlaneToggle;
+    [SerializeField] private Toggle horizontalPlaneToggle;
+    [SerializeField] private Toggle bigPlaneToggle;
+    [SerializeField] private Button startButton;
+
+    private ARFilteredPlanes aRFilteredPlanes;
+
+    public bool VerticalPlaneToggel
     {
-        
+        get => verticalPlaneToggle.isOn;
+        set
+        {
+            verticalPlaneToggle.isOn = value;
+            CheckItAllAreTrue();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool HorizontalPlaneToggel
     {
-        
+        get => horizontalPlaneToggle.isOn;
+        set
+        {
+            horizontalPlaneToggle.isOn = value;
+            CheckItAllAreTrue();
+        }
+    }
+
+    public bool BigPlaneToggel
+    {
+        get => bigPlaneToggle.isOn;
+        set
+        {
+            bigPlaneToggle.isOn = value;
+            CheckItAllAreTrue();
+        }
+    }
+    private void OnEnable()
+    {
+        aRFilteredPlanes = FindObjectOfType<ARFilteredPlanes>(); 
+
+        aRFilteredPlanes.OnVerticalFound += () => VerticalPlaneToggel = true;
+        aRFilteredPlanes.OnHorizontalFound += () =>HorizontalPlaneToggel = true;
+        aRFilteredPlanes.OnBigPlaneFound += () =>BigPlaneToggel= true;
+    }
+
+    private void OnDisable()
+    {
+        aRFilteredPlanes.OnVerticalFound -= () => VerticalPlaneToggel = true;
+        aRFilteredPlanes.OnHorizontalFound -= () => HorizontalPlaneToggel = true;
+        aRFilteredPlanes.OnBigPlaneFound -= () => BigPlaneToggel = true;
+    }
+
+    private void CheckItAllAreTrue()
+    {
+        if (verticalPlaneToggle && HorizontalPlaneToggel && BigPlaneToggel)
+            startButton.interactable = true;
     }
 }
