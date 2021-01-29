@@ -1,59 +1,14 @@
 fileFormatVersion: 2
-guid: 11c9b9b810e71144da58bafe124ed41b
+guid: 9865daeefabcd4d4a9b580ccb42a54f1
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Belt_Iron
-    second: {fileID: 2100000, guid: 10a71a85ad06de34fa583e5be06dd1f1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Belt_Leather
-    second: {fileID: 2100000, guid: ea34a79c6637dbf418d58771f781b6cb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bot_Iron
-    second: {fileID: 2100000, guid: 5cf82e0d6579a5649b7dc31515a839af, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bot_Skin
-    second: {fileID: 2100000, guid: 80788af99d68f974a909b54d485b0b12, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pants_Cotton
-    second: {fileID: 2100000, guid: 87ffceb0a6b0cfc43ad717f534caaf7d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shirts_Silk01
-    second: {fileID: 2100000, guid: 249ca683b578cde43b152803a247e99d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shirts_Silk02
-    second: {fileID: 2100000, guid: 96fcf69b16dd9ae42aba25f8ee870fc5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shouse_Leather
-    second: {fileID: 2100000, guid: d294f3a608193de47a3b0820ece6af6c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shouse_Rubber
-    second: {fileID: 2100000, guid: 7ad142f9b5513804289d550f59c289c7, type: 2}
+    second: Idle
+  externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -71,7 +26,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -80,15 +35,15 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Idle
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 840
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 2
+      cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
@@ -116,10 +71,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -145,11 +100,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 9865daeefabcd4d4a9b580ccb42a54f1
-  - c39b3e5fd732f5e4a83fcdb9b0b5e530
-  - 377fd8ea1e6fd56409857004331a3dd3
-  importAnimation: 0
+  referencedClips: []
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human:
@@ -693,11 +645,12 @@ ModelImporter:
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 11c9b9b810e71144da58bafe124ed41b,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
