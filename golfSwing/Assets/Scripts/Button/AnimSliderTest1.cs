@@ -135,7 +135,7 @@ public class AnimSliderTest1 : MonoBehaviour
         //   anim.Play = WrapMode.Once;
         m_Animator.SetTrigger("Swing");
         //      anim.speed = 1f;
-        m_Animator.speed = mspeed;
+        m_Animator.speed = 1;
 
      
     }

@@ -17,7 +17,7 @@ TagManager:
   - 
   - 
   - AnimSlider
-  - 
+  - UI_Back
   - 
   - 
   - 
@@ -43,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Trans1
+    uniqueID: 1470100619
+    locked: 0
+  - name: Trans2
+    uniqueID: 1043204531
     locked: 0
