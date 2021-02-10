@@ -32,4 +32,13 @@ public class CreateInstane_Prefab : MonoBehaviour
         clone.name = "golferPrefab";
 
     }
+
+    public void DestroyCharacter()
+    {
+        if (GameObject.Find("golferPrefab"))
+        {
+            Destroy(GameObject.Find("golferPrefab"));
+        }
+
+    }
 }

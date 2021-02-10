@@ -84,6 +84,7 @@ public class MeleeWeaponTrail : MonoBehaviour
     {
         _lastPosition = transform.position;
         _trailObject = new GameObject("Trail");
+  //      _trailObject.tag = "Trail";
         _trailObject.transform.parent = null;
         _trailObject.transform.position = Vector3.zero;
         _trailObject.transform.rotation = Quaternion.identity;
@@ -101,6 +102,7 @@ public class MeleeWeaponTrail : MonoBehaviour
         _trailObject.GetComponent<Renderer>().receiveShadows = false;
  
         _trailObject.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+        _trailObject.GetComponent<MeshRenderer>().enabled = false;
         _minVertexDistanceSqr = _minVertexDistance * _minVertexDistance;
         _maxVertexDistanceSqr = _maxVertexDistance * _maxVertexDistance;
  
