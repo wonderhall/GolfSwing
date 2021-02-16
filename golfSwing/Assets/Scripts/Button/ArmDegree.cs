@@ -63,7 +63,7 @@ public class ArmDegree : MonoBehaviour
 
         Vector3 targetDir = m_targetPoint.position - m_handPoint.transform.position;
         targetDir.z = 0f;
-        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(targetDir.x, targetDir.y) * Mathf.Rad2Deg;
         if (angle < 0f) angle += 360f;
         //dir = objectB.position - objectA.position;
         //dir.z = 0.0;

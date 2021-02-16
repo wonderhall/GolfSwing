@@ -51,7 +51,7 @@ public class SwingDegree : MonoBehaviour
     {
 
 
-        m_target = GameObject.FindWithTag("GolfClub_Base").transform;
+        m_target = GameObject.Find("Base").transform;
         //      m_target = player.transform.Find("Gun").gameObject;
         //      GameObject.FindGameObjectWithTag("GolfClub_Base");
         //    m_target = FindObjectOfType<Transform>();
