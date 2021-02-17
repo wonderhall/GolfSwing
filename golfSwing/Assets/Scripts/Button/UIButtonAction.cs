@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIButtonAction : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class UIButtonAction : MonoBehaviour
     AnimatorClipInfo[] myAnimatorClip;
     public bool isShowDrawLine = false;
 
-
+    public float animTime;
 
     float animSpeed;
     public bool isplaying;
@@ -27,7 +28,7 @@ public class UIButtonAction : MonoBehaviour
     {
 
 
-       
+
 
 
 
@@ -36,30 +37,38 @@ public class UIButtonAction : MonoBehaviour
     private void Update()
     {
         //   m_Trail = GameObject.Find("Trail");
-
-
-        float V = Mathf.Clamp(animationState.normalizedTime, 0, 1);
+  
         _sliderValue = slider.normalizedValue;
 
         if (isplaying)
         {
 
+            AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
+            AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
+
+            animTime = m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+            Debug.Log(animTime);
 
 
             m_Animator.SetTrigger("Swing");
             m_Animator.SetFloat("SwingSpeed", animSpeed);
-            m_Animator.Play("Swing", -1);
+            m_Animator.Play("Swing",-1);
 
 
             //_sliderValue = animationState.normalizedTime;
 
 
-            if (isLooping && animationState.normalizedTime == 1)
+            if (isLooping && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
-                m_Animator.Play("Swing", -1, 0);
+                m_Animator.Play("Swing", -1,0f);
             }
+            //if (isplaying && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            //{
+            //    Play_Stop();
+            //}
 
-            mSlider_Value(V);
+            mSlider_Value();
         }
         if (!isplaying && m_Animator != null)
         {
@@ -76,10 +85,10 @@ public class UIButtonAction : MonoBehaviour
 
     }
 
-    public void mSlider_Value(float V)
+    public void mSlider_Value()
     {
-        sliderV = V;
-
+        sliderV = animationState.normalizedTime;
+        return ;
     }
 
     public void Play_Swing()
@@ -88,27 +97,30 @@ public class UIButtonAction : MonoBehaviour
         AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
         AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
 
+        animTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
 
-        isplaying = !isplaying;
+        isplaying = true;
         animSpeed = 1f;
     }
-    public void Play_Stop(float changedValue)
+    public void Play_Stop()
     {
-        isplaying = !isplaying;
+        Renderer _renderer = GameObject.Find("Trail").GetComponent<MeshRenderer>();
+        isplaying = false;
         animSpeed = 0f;
+        _renderer.enabled = false;
     }
 
 
     public void Play_Slower(float changedValue)
     {
-        changedValue = 0.5f;
-        animSpeed -= changedValue;
+        
+        animSpeed = animSpeed/changedValue;
     }
 
     public void Play_Faster(float changedValue)
     {
-        changedValue = 0.5f;
-        animSpeed += changedValue;
+      
+        animSpeed = animSpeed * changedValue;
     }
 
     public void Play_ReSet()
@@ -129,25 +141,11 @@ public class UIButtonAction : MonoBehaviour
 
     public void GoHome()
     {
+        SceneManager.LoadScene("VR_Main");
 
-        Destroy(GameObject.Find("golferPrefab"));
-        //Canvas CanvasObject = GameObject.Find("YourNamedCanvas").GetComponent<Canvas>();
-        //CanvasObject.GetComponent<Canvas>().enabled = false;
-
-        //Canvas ca = GameObject.FindObjectOfType(CanvasGroup)
-
-        Transform parentobj = GameObject.Find("Canvas_Profile").transform;
-
-        for (int i = 0; i < parentobj.transform.childCount; i++)
-        {
-
-            parentobj.transform.GetChild(i).gameObject.SetActive(false);
-        }
     }
     public void ShowHideTrail()
     {
-        //GameObject m_Trail = GameObject.Find("Trail");
-        //Renderer _renderer = m_Trail.GetComponent<MeshRenderer>();
 
         Renderer _renderer = GameObject.Find("Trail").GetComponent<MeshRenderer>();
 
@@ -175,5 +173,21 @@ public class UIButtonAction : MonoBehaviour
 
     }
 
+    public void ShowHideDegree()
+    {
+        Transform parentobj = GameObject.Find("-------Degree----").transform;
+        bool isShow = parentobj.FindChild("SwingDegree").gameObject.activeSelf;
+
+        //    AxisLine.active = false;
+        for (int i = 0; i < parentobj.transform.childCount; i++)
+        {
+
+            parentobj.transform.GetChild(i).gameObject.SetActive(!isShow);
+        }
+
+        isShowDrawLine = !isShow;
+
+
+    }
 
 }

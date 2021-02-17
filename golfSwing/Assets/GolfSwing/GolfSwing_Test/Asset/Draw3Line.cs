@@ -61,12 +61,7 @@ public class Draw3Line : MonoBehaviour
     }
 
 
-    public static float GetAngle(Vector3 vStart, Vector3 vEnd)
-    {
-        Vector3 v = vEnd - vStart;
 
-        return Mathf.Atan2((v.y), (v.z)) * Mathf.Rad2Deg;
-    }
 
 
 

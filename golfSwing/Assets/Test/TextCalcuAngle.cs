@@ -13,17 +13,29 @@ public class TextCalcuAngle : MonoBehaviour
     [SerializeField]
     private Transform m_to;
 
+    public float mWidth = 0.05f;
 
     [SerializeField]
     private TextMeshProUGUI TextDeg;
 
 
+    private LineRenderer lineRenderer;
+
+    private void Start()
+    {
+        lineRenderer = this.GetComponent<LineRenderer>();
+
+        lineRenderer.SetWidth(mWidth, mWidth);
+    }
     void Update()
     {
         m_pre.transform.position = GameObject.Find("Bip001 R Forearm").transform.position;
         m_from.transform.position = GameObject.Find("Bip001 R Hand").transform.position;
-        m_to.transform.position = GameObject.Find("Base").transform.position;
+        m_to.transform.position = GameObject.Find("Base").transform.InverseTransformPoint(GameObject.Find("Base").transform.position);
 
+        lineRenderer.SetPosition(0, m_pre.position);
+        lineRenderer.SetPosition(1, m_from.position);
+        lineRenderer.SetPosition(2, m_to.position);
 
         //float Xo = m_origin.transform.position.x;
         //float Yo = m_origin.transform.position.y;
