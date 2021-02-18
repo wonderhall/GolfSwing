@@ -8,77 +8,61 @@ public class UIButtonAction : MonoBehaviour
 {
 
 
+
     public Slider slider;
-    public float _sliderValue = 0.0F;
-    public float sliderV = 0.0F;
+    public float _sliderValue = 0.5F;
+
 
     private Animator m_Animator;
-    AnimatorStateInfo animationState;
-    AnimatorClipInfo[] myAnimatorClip;
+
     public bool isShowDrawLine = false;
 
     public float animTime;
 
-    float animSpeed;
     public bool isplaying;
+
+
+    float animSpeed;
     bool isLooping;
 
 
-    private void Start()
-    {
 
-
-
-
-
-
-        sliderV = slider.GetComponent<Slider>().value;
-    }
     private void Update()
     {
-        //   m_Trail = GameObject.Find("Trail");
-  
-        _sliderValue = slider.normalizedValue;
+
 
         if (isplaying)
         {
 
-            AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
-            AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
+   //         AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
+  //          AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
 
-            animTime = m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-            Debug.Log(animTime);
-
+            //Debug.Log(animTime);
 
             m_Animator.SetTrigger("Swing");
             m_Animator.SetFloat("SwingSpeed", animSpeed);
             m_Animator.Play("Swing",-1);
 
 
-            //_sliderValue = animationState.normalizedTime;
-
 
             if (isLooping && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
                 m_Animator.Play("Swing", -1,0f);
+           
             }
-            //if (isplaying && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-            //{
-            //    Play_Stop();
-            //}
 
-            mSlider_Value();
         }
         if (!isplaying && m_Animator != null)
         {
+            _sliderValue = slider.normalizedValue;
             m_Animator.Play("Swing", -1, _sliderValue);   //슬라이더값플레이
             //ShowHideTrail();
         }
         else
             return;
 
-        sliderV = animationState.normalizedTime;
+    
 
 
 
@@ -87,7 +71,8 @@ public class UIButtonAction : MonoBehaviour
 
     public void mSlider_Value()
     {
-        sliderV = animationState.normalizedTime;
+    
+ 
         return ;
     }
 
@@ -105,6 +90,8 @@ public class UIButtonAction : MonoBehaviour
     public void Play_Stop()
     {
         Renderer _renderer = GameObject.Find("Trail").GetComponent<MeshRenderer>();
+        m_Animator = GameObject.Find("GolfAvatar").GetComponent<Animator>();
+        m_Animator.Play("Swing", -1,1);
         isplaying = false;
         animSpeed = 0f;
         _renderer.enabled = false;
@@ -178,7 +165,7 @@ public class UIButtonAction : MonoBehaviour
         Transform parentobj = GameObject.Find("-------Degree----").transform;
         bool isShow = parentobj.FindChild("SwingDegree").gameObject.activeSelf;
 
-        //    AxisLine.active = false;
+ 
         for (int i = 0; i < parentobj.transform.childCount; i++)
         {
 

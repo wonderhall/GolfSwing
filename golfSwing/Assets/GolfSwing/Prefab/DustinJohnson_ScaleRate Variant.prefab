@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 2213605158723772602, guid: f0d2aef1ab1e8264496ce04adc821a00,
         type: 3}
       propertyPath: m_Name
-      value: DustinJohnson_ScaleRate
+      value: DustinJohnson_ScaleRate Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4483212169609504256, guid: f0d2aef1ab1e8264496ce04adc821a00,
         type: 3}
@@ -115,14 +115,29 @@ PrefabInstance:
     - target: {fileID: 6415155567595387604, guid: f0d2aef1ab1e8264496ce04adc821a00,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.085
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415155567595387604, guid: f0d2aef1ab1e8264496ce04adc821a00,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.085
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415155567595387604, guid: f0d2aef1ab1e8264496ce04adc821a00,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660612980519258522, guid: f0d2aef1ab1e8264496ce04adc821a00,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660612980519258522, guid: f0d2aef1ab1e8264496ce04adc821a00,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660612980519258522, guid: f0d2aef1ab1e8264496ce04adc821a00,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.085
