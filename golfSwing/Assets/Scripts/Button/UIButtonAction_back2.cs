@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIButtonAction : MonoBehaviour
+public class UIButtonAction_back2 : MonoBehaviour
 {
 
 
@@ -25,41 +25,31 @@ public class UIButtonAction : MonoBehaviour
     float animSpeed;
     bool isLooping;
 
-    /// <summary>
-    /// /////////////////////
 
-    AnimatorStateInfo animationState;
-    AnimatorClipInfo[] m_CurrentClipInfo;
-
-
-    public float timer;
-    float m_CurrentClipLength;
-
-    /// </summary>
 
     private void Update()
     {
-        Debug.Log(timer);
+
+
         if (isplaying)
         {
-    
-            slider.normalizedValue += timer;
-            m_Animator.Play("Swing", -1, slider.normalizedValue);
+
+   //         AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
+  //          AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
 
 
+            //Debug.Log(animTime);
+
+            m_Animator.SetTrigger("Swing");
+            m_Animator.SetFloat("SwingSpeed", animSpeed);
+            m_Animator.Play("Swing",-1);
 
 
-            //if (isplaying)
-            //{
-
-            //    m_Animator.SetTrigger("Swing");
-            //    m_Animator.SetFloat("SwingSpeed", animSpeed);
-            //    m_Animator.Play("Swing", -1);
 
             if (isLooping && m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
-                slider.normalizedValue = 0;
-
+                m_Animator.Play("Swing", -1,0f);
+           
             }
 
         }
@@ -72,55 +62,36 @@ public class UIButtonAction : MonoBehaviour
         else
             return;
 
+    
+
+
+
+
     }
 
     public void mSlider_Value()
     {
-
-        return;
+    
+ 
+        return ;
     }
 
     public void Play_Swing()
     {
-
-
         m_Animator = GameObject.Find("GolfAvatar").GetComponent<Animator>();
-
+        AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
         AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
 
-        AnimatorClipInfo[] m_CurrentClipInfo = m_Animator.GetCurrentAnimatorClipInfo(0);
+        animTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
 
-        m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
-        timer = ((1 / m_CurrentClipLength) / 60);
-
-        Debug.Log("타이머" + timer);
-        Debug.Log("길이" + m_CurrentClipLength);
-
-        m_Animator.SetTrigger("Swing");
-
-        animSpeed = 1f;
-        m_Animator.SetFloat("SwingSpeed", animSpeed);
-        //m_Animator.Play("Swing", 0, slider.normalizedValue);
-
-
-        //m_Animator = GameObject.Find("GolfAvatar").GetComponent<Animator>();
-        //AnimatorClipInfo[] myAnimatorClip = m_Animator.GetCurrentAnimatorClipInfo(0);
-        //AnimatorStateInfo animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
-
-        //animTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
-
-        //isplaying = true;
-        //animSpeed = 1f;
         isplaying = true;
+        animSpeed = 1f;
     }
-
     public void Play_Stop()
     {
-        isplaying = false;
-
         Renderer _renderer = GameObject.Find("Trail").GetComponent<MeshRenderer>();
         m_Animator = GameObject.Find("GolfAvatar").GetComponent<Animator>();
-        m_Animator.Play("Swing", -1, 1);
+        m_Animator.Play("Swing", -1,1);
         isplaying = false;
         animSpeed = 0f;
         _renderer.enabled = false;
@@ -129,13 +100,13 @@ public class UIButtonAction : MonoBehaviour
 
     public void Play_Slower(float changedValue)
     {
-
-        animSpeed = animSpeed / changedValue;
+        
+        animSpeed = animSpeed/changedValue;
     }
 
     public void Play_Faster(float changedValue)
     {
-
+      
         animSpeed = animSpeed * changedValue;
     }
 
@@ -194,7 +165,7 @@ public class UIButtonAction : MonoBehaviour
         Transform parentobj = GameObject.Find("-------Degree----").transform;
         bool isShow = parentobj.FindChild("SwingDegree").gameObject.activeSelf;
 
-
+ 
         for (int i = 0; i < parentobj.transform.childCount; i++)
         {
 
@@ -205,26 +176,5 @@ public class UIButtonAction : MonoBehaviour
 
 
     }
-
-    public void GetAnim()
-    {
-        m_Animator = GameObject.Find("GolfAvatar").GetComponent<Animator>();
-        m_Animator.SetTrigger("Swing");
-
-        animationState = m_Animator.GetCurrentAnimatorStateInfo(0);
-        m_CurrentClipInfo = m_Animator.GetCurrentAnimatorClipInfo(0);
-
-        m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
-        timer = (1 / m_CurrentClipLength) / 60;
-
-
-
-
-        Debug.Log("타이머" + timer);
-        Debug.Log("길이" + m_CurrentClipLength);
-     
-
-    }
-
 
 }

@@ -52,11 +52,11 @@ public class ArmDegree : MonoBehaviour
    
         Vector3 toTarget = (to.position -from.position).normalized;
 
-        Debug.Log(toTarget);
+        //Debug.Log(toTarget);
 
         var dot = Vector3.Dot(toTarget, from.right);
 
-        Debug.Log(dot);
+        //Debug.Log(dot);
 
         var acos = Mathf.Acos(dot);
 
@@ -64,17 +64,7 @@ public class ArmDegree : MonoBehaviour
 
 
 
-        //Vector3 targetDir = to.position - from.transform.position;
-        //targetDir.z = 0f;
-        //float angle = Mathf.Atan2(targetDir.x, targetDir.y) * Mathf.Rad2Deg;
-        //if (angle < 0f) angle += 360f;
-        ////dir = objectB.position - objectA.position;
-        ////dir.z = 0.0;
-        ////angle = Mathf.Atan(dir.y, dir.x) * Mathf.Rad2Deg;
-
-
-
-        Debug.Log("swingAngle= "+angle);
+        //Debug.Log("swingAngle= "+angle);
         TextDeg.text = $"{(int)angle}'";
 
 
