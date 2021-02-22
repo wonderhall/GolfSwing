@@ -139,13 +139,13 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: SwingSpeed
     m_Type: 1
-    m_DefaultFloat: 5
+    m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: SwingTime
     m_Type: 1
-    m_DefaultFloat: 1
+    m_DefaultFloat: 0.5
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -260,7 +260,7 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5762043711260719117}
-    m_Position: {x: 290, y: 220, z: 0}
+    m_Position: {x: 280, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
