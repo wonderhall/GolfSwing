@@ -14,6 +14,9 @@ using UnityEngine.Rendering;
 
 public class MeleeWeaponTrail : MonoBehaviour
 {
+
+
+ 
     [SerializeField]
     bool _emit = true;
     public bool Emit { set { _emit = value; } }
@@ -93,8 +96,8 @@ public class MeleeWeaponTrail : MonoBehaviour
         _trailObject.AddComponent(typeof(MeshRenderer));
         _trailObject.GetComponent<Renderer>().material = _material;
         _trailObject.layer = 1;
-        
 
+    
 
         _trailMesh = new Mesh();
         _trailMesh.name = name + "TrailMesh";
@@ -105,6 +108,8 @@ public class MeleeWeaponTrail : MonoBehaviour
         _trailObject.GetComponent<MeshRenderer>().enabled = false;
         _minVertexDistanceSqr = _minVertexDistance * _minVertexDistance;
         _maxVertexDistanceSqr = _maxVertexDistance * _maxVertexDistance;
+
+   
  
     }
 
@@ -115,6 +120,8 @@ public class MeleeWeaponTrail : MonoBehaviour
 
     void Update()
     {
+
+
         if (!_use)
         {
             return;
@@ -293,7 +300,7 @@ public class MeleeWeaponTrail : MonoBehaviour
             for (int n = 0; n < pointsToUse.Count; ++n)
             {
                 Point p = pointsToUse[n];
-                float time = (Time.time - p.timeCreated) / _lifeTime;
+                float time = (Time.time - p.timeCreated) / _lifeTime ;
 
                 Color color = Color.Lerp(Color.white, Color.clear, time);
 

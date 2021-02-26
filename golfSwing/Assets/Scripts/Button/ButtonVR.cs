@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ButtonVR : MonoBehaviour
 {
     // Start is called before the first frame update
- //   public Transform touchR;
+    //   public Transform touchR;
 
 
-  //  public bool controllerMoving;
+    //  public bool controllerMoving;
 
     public bool inputA;
     public bool inputB;
@@ -18,14 +19,13 @@ public class ButtonVR : MonoBehaviour
 
     [SerializeField]
     private Transform hideUI;
+    //[SerializeField]
+    //private OVRInput.Controller m_controller = OVRInput.Controller.None;
+
 
     void Update()
     {
-        //touchR.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-        //touchR.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
 
-        //눌렀을때만 참//
-        //      inputA = OVRInput.Get(OVRInput.RawButton.A);
 
 
         if (OVRInput.GetDown(OVRInput.RawButton.A))
@@ -33,41 +33,21 @@ public class ButtonVR : MonoBehaviour
             inputA = !inputA;
 
             Transform parentobj = hideUI.transform;
-            bool isShow = parentobj.FindChild("---UI---").gameObject.activeSelf;
+            bool isShow = parentobj.Find("---UI---").gameObject.activeSelf;
 
-            parentobj.FindChild("---UI---").gameObject.SetActive(!isShow);
+            parentobj.Find("---UI---").gameObject.SetActive(!isShow);
 
-   
-       
-       
+            Debug.Log("하이드 유아이");
+
+
         }
 
 
         if (OVRInput.GetDown(OVRInput.RawButton.B))
         {
-            //    //      Application.Quit();
-            //    switch (inputB)
-            //    {
-            //        case true:
-            //            Debug.Log("Plastic hellooo");
-            //            m_UI.Play_Swing();
+            Application.Quit();
 
-            //            break;
-            //        case false:
-            //            Debug.Log("Paper hellooo");
-            //            m_UI.Play_Stop();
-
-            //            break;
-            //        default:
-            //                 m_UI.Play_Swing();
-            //            break;
-
-            //    }
-
-
-            //    Debug.Log("get B button");
         }
-
 
 
 

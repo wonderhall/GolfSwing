@@ -436,6 +436,7 @@ public class OVRPlayerController : MonoBehaviour
 				if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
 					(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)))
 				{
+					Debug.Log("aa");
 					if (ReadyToSnapTurn)
 					{
 						euler.y -= RotationRatchet;
@@ -444,6 +445,7 @@ public class OVRPlayerController : MonoBehaviour
 				}
 				else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) ||
 					(RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)))
+
 				{
 					if (ReadyToSnapTurn)
 					{

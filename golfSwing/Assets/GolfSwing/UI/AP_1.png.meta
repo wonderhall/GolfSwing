@@ -73,7 +73,7 @@ TextureImporter:
     second: Option_Trail
   - first:
       213: -4174354055050314029
-    second: Option_Angker
+    second: Option_Axis
   - first:
       213: 4332767221950463066
     second: Option_Degree
@@ -1672,7 +1672,7 @@ TextureImporter:
     second: Line
   - first:
       213: 7809113083182702117
-    second: Option_Angker_Push
+    second: Option_Axis_Push
   - first:
       213: 2775464134752362934
     second: Slower_Speed_Push
@@ -2223,7 +2223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Option_Angker
+      name: Option_Axis
       rect:
         serializedVersion: 2
         x: 1010
@@ -2268,10 +2268,10 @@ TextureImporter:
       name: PushA_Button
       rect:
         serializedVersion: 2
-        x: 901
+        x: 854
         y: 1917
-        width: 555
-        height: 35
+        width: 641
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2291,7 +2291,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1507
         y: 1627
-        width: 462
+        width: 541
         height: 387
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2311,8 +2311,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1507
-        y: 778
-        width: 462
+        y: 775
+        width: 541
         height: 374
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2333,7 +2333,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1507
         y: 1183
-        width: 462
+        width: 541
         height: 374
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2352,9 +2352,9 @@ TextureImporter:
       name: Profile_Park
       rect:
         serializedVersion: 2
-        x: 987
+        x: 905
         y: 1466
-        width: 467
+        width: 569
         height: 374
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2664,7 +2664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Option_Angker_Push
+      name: Option_Axis_Push
       rect:
         serializedVersion: 2
         x: 1495
